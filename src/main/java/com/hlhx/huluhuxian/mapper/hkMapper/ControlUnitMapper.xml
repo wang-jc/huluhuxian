@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlhx.huluhuxian.mapper.hkMapper.ControlUnitMapper">
+
+    <select id="getControlUnitList" resultType="com.hlhx.huluhuxian.model.ControlUnit">
+        select d.control_unit_id,c.name,c.index_code, d.num from control_unit c,
+        (select a.parent_id,a.control_unit_id,a.name, b.num from control_unit a,
+            (select control_unit_id,count (*) num from alarm_log where 1=1
+                <if test="beginDateScope !=null">
+                    and alarm_start_time between #{beginDateScope[0]} and #{beginDateScope[1]}
+                </if>
+            group by control_unit_id) b
+            where a.control_unit_id=b.control_unit_id) d
+        where  c.control_unit_id=d.parent_id and c.parent_id=6
+        <if test="controlUnit.indexCode !=null and controlUnit.indexCode!=''">
+            and c.index_code = #{controlUnit.indexCode}
+        </if>
+        <if test="page !=null and size!=null">
+            limit #{size} offset #{page}
+        </if>
+    </select>
+
+    <select id="getArea" resultType="com.hlhx.huluhuxian.model.ControlUnit">
+        select control_unit_id, name,index_code from  control_unit where parent_id=6
+    </select>
+
+    <select id="getRegionInfo" resultType="com.hlhx.huluhuxian.model.RegionInfo">
+        select region_id,control_unit_id,name from region_info where control_unit_id=#{controlUniId} order by region_id
+    </select>
+
+</mapper>

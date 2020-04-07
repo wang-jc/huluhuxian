@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlhx.huluhuxian.mapper.hkMapper.AlarmLogMapper">
+
+    <select id="getAlarmLog" resultType="com.hlhx.huluhuxian.model.AlarmLog">
+        select alarm_log_id,control_unit_id,alarm_event_id,alarm_input_source,alarm_input_type,alarm_event_name,
+        alarm_start_time,alarm_stop_time,trigger_record,log_txt,log_remark,int_rev_1,int_rev_2,str_rev_1,str_rev_2
+         from alarm_log
+        where  1=1
+            <if test="alarmLog.alarmInputSource !=null and alarmLog.alarmInputSource !=''">
+                and alarm_input_source = #{alarmLog.alarmInputSource}
+            </if>
+            <if test="alarmLog.controlUnitId !=null and alarmLog.controlUnitId !=''">
+                and control_unit_id = #{alarmLog.controlUnitId}
+            </if>
+            <if test="beginDateScope !=null">
+                and alarm_start_time between #{beginDateScope[0]} and #{beginDateScope[1]}
+            </if>
+            ORDER BY alarm_start_time DESC
+            <if test="page !=null and size!=null">
+                limit #{size} offset #{page}
+            </if>
+    </select>
+    <select id="getTotal" resultType="java.lang.Long">
+        select count(*) from alarm_log
+        <where> 1=1
+            <if test="alarmLog.alarmInputSource !=null and alarmLog.alarmInputSource!= ''">
+                and alarm_input_source = #{alarmLog.alarmInputSource}
+            </if>
+            <if test="beginDateScope !=null">
+                and alarm_start_time between #{beginDateScope[0]} and #{beginDateScope[1]}
+            </if>
+        </where>
+    </select>
+</mapper>

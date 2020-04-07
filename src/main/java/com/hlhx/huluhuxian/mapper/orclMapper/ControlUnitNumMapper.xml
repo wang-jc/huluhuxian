@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hlhx.huluhuxian.mapper.orclMapper.ControlUnitNumMapper">
+    <insert id="insertAreaAlarmNum" parameterType="java.util.List">
+        INSERT INTO CONTROL_UNIT_NUM (CONTROL_UNIT_ID,NAME,INDEX_CODE,NUM,TIME )
+        select A.*
+        FROM (
+        <foreach collection="list" item="cnn" index="index" separator="UNION ALL">
+            select #{cnn.controlUnitId,jdbcType=INTEGER },#{cnn.name,jdbcType=VARCHAR },#{cnn.indexCode,jdbcType=VARCHAR },
+            #{cnn.num,jdbcType=INTEGER },#{cnn.time,jdbcType=VARCHAR }
+            from dual
+        </foreach>
+        )A
+    </insert>
+
+    <select id="getAreaAlarmNum" resultType="com.hlhx.huluhuxian.model.ControlUnit">
+        SELECT * FROM (
+          SELECT tt.*, ROWNUM AS rowno FROM (
+           SELECT NAME,SUM(NUM) NUM FROM CONTROL_UNIT_NUM
+            WHERE 1=1
+            <if test="controlUnit.indexCode !=null and controlUnit.indexCode!=''">
+                and index_code = #{controlUnit.indexCode}
+            </if>
+            <if test="beginDateScope !=null">
+                and TIME between #{beginDateScope[0]} and #{beginDateScope[1]}
+            </if>
+            GROUP BY NAME
+            order by NUM desc) tt
+        WHERE
+        <if test="size!=null">
+            ROWNUM &lt;= #{size}
+        </if>
+        )table_alias
+        WHERE
+        <if test="page !=null ">
+            table_alias.rowno &gt;= #{page}
+        </if>
+    </select>
+
+</mapper>
