@@ -31,7 +31,7 @@ public class DateUtil {
     public static Date lastDayTime(Date date){
         Calendar ca=Calendar.getInstance();
         ca.setTime(date);
-        ca.add(Calendar.MINUTE,-20);
+        ca.add(Calendar.MINUTE,-25);
         Date date1=ca.getTime();
         return date1;
     }

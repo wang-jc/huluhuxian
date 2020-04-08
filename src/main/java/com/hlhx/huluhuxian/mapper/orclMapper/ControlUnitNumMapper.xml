@@ -7,7 +7,7 @@
         FROM (
         <foreach collection="list" item="cnn" index="index" separator="UNION ALL">
             select #{cnn.controlUnitId,jdbcType=INTEGER },#{cnn.name,jdbcType=VARCHAR },#{cnn.indexCode,jdbcType=VARCHAR },
-            #{cnn.num,jdbcType=INTEGER },#{cnn.time,jdbcType=VARCHAR }
+            #{cnn.num,jdbcType=INTEGER },#{cnn.time,jdbcType=DATE }
             from dual
         </foreach>
         )A

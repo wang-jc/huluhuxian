@@ -18,5 +18,6 @@ public class DbInfo {
     private String baseName;
     private String port;
     private String type;
+    private String areaName;
 
 }

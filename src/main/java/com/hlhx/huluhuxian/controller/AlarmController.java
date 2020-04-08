@@ -75,10 +75,11 @@ public class AlarmController {
                 DataSourceContextHolder.setDBType(dbInfo.getBaseName());
                 List<ControlUnit> controlUnitList = alarmService.getControlUnitList(page, size, controlUnit, beginDateScope);
                 if(controlUnitList==null||controlUnitList.size()==0){
-                    controlUnit.setIndexCode(dbInfo.getBaseName());
+                    ControlUnit controlUnit1 = new ControlUnit();
+                    controlUnit1.setIndexCode(dbInfo.getBaseName());
                     DataSourceContextHolder.setDBType("default");
-                    controlUnitList=controlUnitNumService.getAreaAlarmNum(page ,size,controlUnit,beginDateScope);
-                    if(controlUnitList!=null|| controlUnitList.size()>0){
+                    controlUnitList=controlUnitNumService.getAreaAlarmNum(page ,size,controlUnit1,beginDateScope);
+                    if(controlUnitList.size()>0){
                         list.addAll(controlUnitList);
                     }
                 }else {

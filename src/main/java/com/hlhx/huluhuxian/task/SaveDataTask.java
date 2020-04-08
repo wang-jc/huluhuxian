@@ -36,35 +36,36 @@ public class SaveDataTask {
         try {
             Date time= DateUtil.lastDayTime(new Date());
             Date[] beginDateScope= DateUtil.beginDateScope();
-            ControlUnit controlUnit1=new ControlUnit();
             DataSourceContextHolder.setDBType("default");
             List<DbInfo> dbInfoList = dbInfoService.getDbInfoList();
             List<ControlUnit> list=new ArrayList<>();
-            for(DbInfo dbInfo:dbInfoList){
+            for(DbInfo dbInfo:dbInfoList) {
+                ControlUnit controlUnit1=new ControlUnit();
                 DataSourceContextHolder.setDBType(dbInfo.getBaseName());
-                List<ControlUnit> controlUnitList = alarmService.getControlUnitList(null,null,controlUnit1,beginDateScope);
+                List<ControlUnit> controlUnitList = alarmService.getControlUnitList(null, null, controlUnit1, beginDateScope);
                 list.addAll(controlUnitList);
             }
             for (ControlUnit controlUnit:list){
                 controlUnit.setTime(time);
             }
+            DataSourceContextHolder.setDBType("default");
             controlUnitNumService.insertAreaAlarmNum(list);
-            System.out.println("#################################");
+            System.out.println("#################################区域");
         }catch (Exception e){
             e.printStackTrace();
         }
 
     }
-    @Scheduled(cron = "0 10 00 * * ?")
+    @Scheduled(cron = "0 15 00 * * ?")
     public void saveCameraAlarmNum(){
         try {
             Date time= DateUtil.lastDayTime(new Date());
             Date[] beginDateScope= DateUtil.beginDateScope();
-            CameraInfo cameraInfo1=new CameraInfo();
             DataSourceContextHolder.setDBType("default");
             List<DbInfo> dbInfoList = dbInfoService.getDbInfoList();//获取所有数据源
             List<CameraInfo> list=new ArrayList<>();
             for(DbInfo dbInfo:dbInfoList) {
+                CameraInfo cameraInfo1=new CameraInfo();
                 DataSourceContextHolder.setDBType(dbInfo.getBaseName());
                 //获取每个县的统计结果
                 List<CameraInfo> cameraInfoList=alarmService.getCameraList(null,null,cameraInfo1,beginDateScope);
@@ -75,8 +76,10 @@ public class SaveDataTask {
                 list.addAll(cameraInfoList);
             }
            if(list.size()>0){
+               DataSourceContextHolder.setDBType("default");
                cameraNumService.insertCameraNum(list);
            }
+            System.out.println("#################################点位");
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -7,7 +7,7 @@
         FROM (
         <foreach collection="list" item="cn" index="index" separator="UNION ALL">
             select #{cn.cameraId,jdbcType=INTEGER},#{cn.regionId,jdbcType=INTEGER},#{cn.indexCode,jdbcType=VARCHAR},
-            #{cn.name,jdbcType=VARCHAR},#{cn.cameraType,jdbcType=INTEGER},#{cn.num,jdbcType=INTEGER},#{cn.time,jdbcType=VARCHAR}
+            #{cn.name,jdbcType=VARCHAR},#{cn.cameraType,jdbcType=INTEGER},#{cn.num,jdbcType=INTEGER},#{cn.time,jdbcType=DATE}
             from dual
         </foreach>
         )A
