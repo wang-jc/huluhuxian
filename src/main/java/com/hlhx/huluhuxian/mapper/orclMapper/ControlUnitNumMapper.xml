@@ -16,7 +16,7 @@
     <select id="getAreaAlarmNum" resultType="com.hlhx.huluhuxian.model.ControlUnit">
         SELECT * FROM (
           SELECT tt.*, ROWNUM AS rowno FROM (
-           SELECT NAME,SUM(NUM) NUM FROM CONTROL_UNIT_NUM
+           SELECT CONTROL_UNIT_ID,INDEX_CODE,NAME,SUM(NUM) NUM FROM CONTROL_UNIT_NUM
             WHERE 1=1
             <if test="controlUnit.indexCode !=null and controlUnit.indexCode!=''">
                 and index_code = #{controlUnit.indexCode}
@@ -24,7 +24,7 @@
             <if test="beginDateScope !=null">
                 and TIME between #{beginDateScope[0]} and #{beginDateScope[1]}
             </if>
-            GROUP BY NAME
+            GROUP BY CONTROL_UNIT_ID,INDEX_CODE, NAME
             order by NUM desc) tt
         WHERE
         <if test="size!=null">
