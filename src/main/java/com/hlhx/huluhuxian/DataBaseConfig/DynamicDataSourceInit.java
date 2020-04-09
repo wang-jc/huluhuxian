@@ -43,7 +43,7 @@ public class DynamicDataSourceInit implements CommandLineRunner {
             Map<Object, Object> dataSourceMap = DynamicDataSource.getInstance().getDataSourceMap();
             dataSourceMap.put(dbInfo.getBaseName(), dynamicDataSource);
             DynamicDataSource.getInstance().setTargetDataSources(dataSourceMap);
-            System.out.println("dbName is -> " + dbInfo.getName() + "; dbIP is  -> " + dbInfo.getIp() + "; dbUser is  -> " + dbInfo.getUserName() + "; dbPasswd is -> " + dbInfo.getPassword());
+            System.out.println("dbName is -> " + dbInfo.getAreaName() + "; dbIP is  -> " + dbInfo.getIp() + "; dbUser is  -> " + dbInfo.getUserName() + "; dbPasswd is -> " + dbInfo.getPassword());
 
         }
     }
