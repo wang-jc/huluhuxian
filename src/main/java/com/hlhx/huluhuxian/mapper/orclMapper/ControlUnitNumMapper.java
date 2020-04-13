@@ -13,4 +13,5 @@ import java.util.List;
 public interface ControlUnitNumMapper {
     int insertAreaAlarmNum(@Param("list") List<ControlUnit> list);
     List<ControlUnit> getAreaAlarmNum(@Param("page") Integer page, @Param("size") Integer size, @Param("controlUnit") ControlUnit controlUnit, @Param("beginDateScope") Date[] beginDateScope);
+    Long getAreaAlarmTotal(@Param("controlUnit") ControlUnit controlUnit, @Param("beginDateScope") Date[] beginDateScope);
 }

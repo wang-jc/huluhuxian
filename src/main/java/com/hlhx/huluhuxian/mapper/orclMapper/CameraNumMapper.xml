@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hlhx.huluhuxian.mapper.orclMapper.CameraNumMapper">
     <insert id="insertCameraNum" parameterType="java.util.List">
-        INSERT INTO CAMERA_NUM ( CAMERA_ID,REGION_ID,INDEX_CODE,NAME,CAMERA_TYPE,NUM,TIME )
+        INSERT INTO CAMERA_NUM ( CAMERA_ID,REGION_ID,INDEX_CODE,NAME,CAMERA_TYPE,NUM,TIME,CITYNO )
         select A.*
         FROM (
         <foreach collection="list" item="cn" index="index" separator="UNION ALL">
@@ -43,6 +43,24 @@
         <if test="page !=null">
             table_alias.rowno &gt;= #{page}
         </if>
+    </select>
+
+    <select id="getCameraTotal"  resultType="java.lang.Long">
+        SELECT count(*) from (
+            SELECT INDEX_CODE,NAME,CAMERA_TYPE,SUM(NUM) NUM FROM CAMERA_NUM
+            WHERE 1 = 1
+            <if test="#{cameraInfo.regionId!=null and cameraInfo.regionId!=''}">
+                and REGION_ID=#{cameraInfo.regionId}
+            </if>
+            <if test="#{cameraInfo.cityNo!=null and cameraInfo.cityNo!=''}">
+                and CITYNO=#{cameraInfo.cityNo}
+            </if>
+            <if test="beginDateScope !=null">
+                and TIME between #{beginDateScope[0]} and #{beginDateScope[1]}
+            </if>
+            GROUP BY INDEX_CODE,NAME,CAMERA_TYPE
+            order by NUM desc
+        )
     </select>
 
 </mapper>

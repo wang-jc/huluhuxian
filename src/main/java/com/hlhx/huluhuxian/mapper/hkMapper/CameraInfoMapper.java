@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface CameraInfoMapper {
     List<CameraInfo> getCameraList(@Param("page") Integer page, @Param("size") Integer size, @Param("cameraInfo") CameraInfo cameraInfo, @Param("beginDateScope") Date[] beginDateScope);
+    Long getTotal(@Param("cameraInfo") CameraInfo cameraInfo, @Param("beginDateScope") Date[] beginDateScope);
 }

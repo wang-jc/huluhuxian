@@ -38,4 +38,8 @@ public class ControlUnitNumService {
         }
         return list;
     }
+
+    public Long getAreaAlarmTotal(ControlUnit controlUnit, Date[] beginDateScope){
+        return controlUnitNumMapper.getAreaAlarmTotal(controlUnit,beginDateScope);
+    }
 }

@@ -42,7 +42,7 @@ public class SaveDataTask {
             for(DbInfo dbInfo:dbInfoList) {
                 ControlUnit controlUnit1=new ControlUnit();
                 DataSourceContextHolder.setDBType(dbInfo.getBaseName());
-                List<ControlUnit> controlUnitList = alarmService.getControlUnitList(null, null, controlUnit1, beginDateScope);
+                List<ControlUnit> controlUnitList = (List<ControlUnit>) alarmService.getControlUnitList(null, null, controlUnit1, beginDateScope).getData();
                 list.addAll(controlUnitList);
             }
             for (ControlUnit controlUnit:list){
@@ -68,7 +68,7 @@ public class SaveDataTask {
                 CameraInfo cameraInfo1=new CameraInfo();
                 DataSourceContextHolder.setDBType(dbInfo.getBaseName());
                 //获取每个县的统计结果
-                List<CameraInfo> cameraInfoList=alarmService.getCameraList(null,null,cameraInfo1,beginDateScope);
+                List<CameraInfo> cameraInfoList= (List<CameraInfo>) alarmService.getCameraList(null,null,cameraInfo1,beginDateScope).getData();
                 for (CameraInfo cameraInfo:cameraInfoList){
                     cameraInfo.setCityNo(dbInfo.getBaseName());
                     cameraInfo.setTime(time);

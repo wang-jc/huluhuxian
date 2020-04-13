@@ -13,4 +13,5 @@ import java.util.List;
 public interface CameraNumMapper {
     int insertCameraNum(@Param("list") List<CameraInfo> list);
     List<CameraInfo> getCameraNum(@Param("page") Integer page, @Param("size") Integer size, @Param("cameraInfo") CameraInfo cameraInfo, @Param("beginDateScope") Date[] beginDateScope);
+    Long getCameraTotal(@Param("cameraInfo") CameraInfo cameraInfo, @Param("beginDateScope") Date[] beginDateScope);
 }

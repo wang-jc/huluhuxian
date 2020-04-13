@@ -19,4 +19,20 @@
         </if>
     </select>
 
+    <select id="getTotal" resultType="java.lang.Long">
+        SELECT count(tt.*) from (
+        select a.camera_id,a.region_id,a.index_code,a.name,a.camera_type,b.num from camera_info a,
+        (select alarm_input_source,count (*) num from alarm_log where 1=1
+        <if test="beginDateScope !=null">
+            and alarm_start_time between #{beginDateScope[0]} and #{beginDateScope[1]}
+        </if>
+        group by alarm_input_source) b
+        where a.index_code=b.alarm_input_source
+        <if test="cameraInfo.regionId !=null and cameraInfo.regionId!= ''">
+            and a.region_id = #{cameraInfo.regionId}
+        </if>
+        ORDER BY b.num DESC
+        ) tt
+    </select>
+
 </mapper>

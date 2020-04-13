@@ -23,7 +23,7 @@ public class CameraNumService {
     public Integer insertCameraNum(List<CameraInfo> list){
         return cameraNumMapper.insertCameraNum(list);
     };
-
+    //获取摄像头列表和报警次数
     public List<CameraInfo> getCameraNum(Integer page, Integer size, CameraInfo cameraInfo, Date[] beginDateScope){
         List<CameraInfo> list=new ArrayList<>();
         try{
@@ -32,5 +32,9 @@ public class CameraNumService {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public Long getCameraTotal (CameraInfo cameraInfo, Date[] beginDateScope){
+        return cameraNumMapper.getCameraTotal(cameraInfo,beginDateScope);
     }
 }

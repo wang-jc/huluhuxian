@@ -42,17 +42,8 @@ public class AlarmController {
     }
     //获取点位列表及点位报警次数
     @RequestMapping("/getPointList")
-    public List<CameraInfo> getPointList(@RequestParam(defaultValue = "1")Integer page, @RequestParam(defaultValue = "10") Integer size, CameraInfo cameraInfo, Date[] beginDateScope){
-        List<CameraInfo> list=new ArrayList<>();
-        DataSourceContextHolder.setDBType(cameraInfo.getCityNo());//指定数据源
-        if(!cameraInfo.getCityNo().isEmpty()||!cameraInfo.getIndexCode().isEmpty()){
-            list=alarmService.getCameraList(page,size,cameraInfo,beginDateScope);
-            if(list==null||list.size()==0){
-                DataSourceContextHolder.setDBType("default");//指定数据源
-                list=cameraNumService.getCameraNum(page,size,cameraInfo,beginDateScope);
-            }
-        }
-        return list;
+    public RespPageBean getPointList(@RequestParam(defaultValue = "1")Integer page, @RequestParam(defaultValue = "10") Integer size, CameraInfo cameraInfo, Date[] beginDateScope){
+        return alarmService.getCameraList(page,size,cameraInfo,beginDateScope);
     }
     //获取所有区域
     @RequestMapping("/getArea")
@@ -70,38 +61,8 @@ public class AlarmController {
     }
     //统计所有区域的报警次数总和
     @RequestMapping("/getAreaAlarmCount")
-    public List<ControlUnit> getAreaAlarmCount(@RequestParam(defaultValue = "1")Integer page, @RequestParam(defaultValue = "30") Integer size, ControlUnit controlUnit, Date[] beginDateScope){
-        DataSourceContextHolder.setDBType("default");
-        List<DbInfo> dbInfoList = dbInfoService.getDbInfoList();
-        List<ControlUnit> list=new ArrayList<>();
-        if(controlUnit.getIndexCode()==null||"".equals(controlUnit.getIndexCode())){
-            for(DbInfo dbInfo:dbInfoList){
-                DataSourceContextHolder.setDBType(dbInfo.getBaseName());
-                List<ControlUnit> controlUnitList =new ArrayList<>();
-                controlUnitList = alarmService.getControlUnitList(page, size, controlUnit, beginDateScope);
-                if(controlUnitList==null||controlUnitList.size()==0){
-                    ControlUnit controlUnit1 = new ControlUnit();
-                    controlUnit1.setIndexCode(dbInfo.getBaseName());
-                    DataSourceContextHolder.setDBType("default");
-                    controlUnitList=controlUnitNumService.getAreaAlarmNum(page ,size,controlUnit1,beginDateScope);
-                    if(controlUnitList.size()>0){
-                        list.addAll(controlUnitList);
-                    }
-                }else {
-                    list.addAll(controlUnitList);
-                }
-            }
-        }else {
-            DataSourceContextHolder.setDBType(controlUnit.getIndexCode());
-            list = alarmService.getControlUnitList(page, size, controlUnit, beginDateScope);
-            if(list==null||list.size()==0){
-                DataSourceContextHolder.setDBType("default");
-                list=controlUnitNumService.getAreaAlarmNum(page ,size,controlUnit,beginDateScope);
-            }
-        }
-        //降序排序
-        list.sort(Comparator.comparing(ControlUnit::getNum).reversed());
-        return list;
+    public RespPageBean getAreaAlarmCount(@RequestParam(defaultValue = "1")Integer page, @RequestParam(defaultValue = "30") Integer size, ControlUnit controlUnit, Date[] beginDateScope){
+        return alarmService.getControlUnitList(page,size ,controlUnit ,beginDateScope);
     }
 
     //获取路线类别
