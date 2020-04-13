@@ -27,6 +27,9 @@
         <if test="#{cameraInfo.regionId!=null and cameraInfo.regionId!=''}">
             and REGION_ID=#{cameraInfo.regionId}
         </if>
+        <if test="#{cameraInfo.cityNo!=null and cameraInfo.cityNo!=''}">
+            and CITYNO=#{cameraInfo.cityNo}
+        </if>
         <if test="beginDateScope !=null">
             and TIME between #{beginDateScope[0]} and #{beginDateScope[1]}
         </if>

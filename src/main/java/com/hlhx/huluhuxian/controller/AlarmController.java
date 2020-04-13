@@ -3,6 +3,8 @@ package com.hlhx.huluhuxian.controller;
 import com.hlhx.huluhuxian.DataBaseConfig.DataSourceContextHolder;
 import com.hlhx.huluhuxian.model.*;
 import com.hlhx.huluhuxian.service.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +27,8 @@ public class AlarmController {
     private ControlUnitNumService controlUnitNumService;
     @Autowired
     private CameraNumService cameraNumService;
+
+    private static final Logger logger= LoggerFactory.getLogger(AlarmController.class);
 
     //获取每个点位的报警详情列表
     @RequestMapping("/getPointAlermList")
@@ -73,7 +77,8 @@ public class AlarmController {
         if(controlUnit.getIndexCode()==null||"".equals(controlUnit.getIndexCode())){
             for(DbInfo dbInfo:dbInfoList){
                 DataSourceContextHolder.setDBType(dbInfo.getBaseName());
-                List<ControlUnit> controlUnitList = alarmService.getControlUnitList(page, size, controlUnit, beginDateScope);
+                List<ControlUnit> controlUnitList =new ArrayList<>();
+                controlUnitList = alarmService.getControlUnitList(page, size, controlUnit, beginDateScope);
                 if(controlUnitList==null||controlUnitList.size()==0){
                     ControlUnit controlUnit1 = new ControlUnit();
                     controlUnit1.setIndexCode(dbInfo.getBaseName());
