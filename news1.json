@@ -1,0 +1,8 @@
+{
+  "title" : "新标题",
+  "image" : [ {
+    "imageName" : "new_image.png"
+  } ],
+  "date" : "20/2/2025",
+  "content" : "新闻内容..."
+}
