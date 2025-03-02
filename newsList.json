@@ -1,6 +1,10 @@
 {
-  "images" : null,
-  "newsUrls" : null,
+  "images" : [ {
+    "imageUrl" : "db29bcc7-8b7d-4118-8b88-b36e775b8609.png"
+  } ],
+  "newsUrls" : [ {
+    "newsUrl" : "news20250303013735271.json"
+  } ],
   "newsList" : [ {
     "parsedDate" : 1740844800000,
     "title" : "Gobernadora de Banxico afirma que la lucha contra la inflación entra en una nueva fase",
