@@ -1,0 +1,10 @@
+{
+  "title" : "测试轮播",
+  "image" : [ {
+    "imageName" : "83474848-2792-4ce7-a39b-ce69a44b2e20.jpeg"
+  }, {
+    "imageName" : "93be2c33-1409-48d3-8925-e528b93af35e.png"
+  } ],
+  "date" : "05/03/2025",
+  "content" : "沙发发\n\n阿第三方都是\n\n阿斯蒂芬是的"
+}
