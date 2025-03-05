@@ -10,12 +10,6 @@
     "newsUrl" : "news20250305193617425.json"
   } ],
   "newsList" : [ {
-    "parsedDate" : 1741174755,
-    "title" : "la inflación entra en una nueva fase",
-    "image" : "90eab5c9-b7d3-4f55-9bb0-8eaf50176222.jpeg",
-    "date" : "05/03/2025",
-    "newsUrl" : "news20250305193915602.json"
-  }, {
     "parsedDate" : 1741174629,
     "title" : "列表2",
     "image" : "c8b9b875-b4a3-42fe-84ee-8c5c9f60ca04.png",
