@@ -10,6 +10,12 @@
     "newsUrl" : "news20250306094301087.json"
   } ],
   "newsList" : [ {
+    "parsedDate" : 1741225655,
+    "title" : "Authorities find 32 kg of fentanyl nestled between nopal leaves in Sonora",
+    "image" : "a9feb825-bace-406c-8139-6e8965234634.png",
+    "date" : "05/03/2025",
+    "newsUrl" : "news20250306094735818.json"
+  }, {
     "parsedDate" : 1741174629,
     "title" : "列表2",
     "image" : "c8b9b875-b4a3-42fe-84ee-8c5c9f60ca04.png",
