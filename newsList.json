@@ -6,6 +6,12 @@
     "newsUrl" : "news20250305193617425.json"
   } ],
   "newsList" : [ {
+    "parsedDate" : 1741657567,
+    "title" : "La inversión fija bruta de México creció un 3.4% en 2024",
+    "image" : "ec6ef951-8af3-416e-8744-e311c645a632.png",
+    "date" : "10/03/2025",
+    "newsUrl" : "news20250311094607964.json"
+  }, {
     "parsedDate" : 1741657108,
     "title" : "La inversión fija bruta de México creció un 3.4% en 2024",
     "image" : "ec6ef951-8af3-416e-8744-e311c645a632.png",
