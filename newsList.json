@@ -1,51 +1,114 @@
 {
-  "images" : [ {
-    "imageUrl" : "9707de50-b44d-4326-a6dc-1c1e443403c6.jpeg"
-  } ],
-  "newsUrls" : [ {
-    "newsUrl" : "news20250305193617425.json"
-  } ],
-  "newsList" : [ {
-    "parsedDate" : 1741657952,
-    "title" : "La inversión fija bruta de México creció un 3.4% en 2024",
-    "image" : "ec6ef951-8af3-416e-8744-e311c645a632.png",
-    "date" : "10/03/2025",
-    "newsUrl" : "news20250311095232237.json"
-  }, {
-    "parsedDate" : 1741657567,
-    "title" : "La inversión fija bruta de México creció un 3.4% en 2024",
-    "image" : "ec6ef951-8af3-416e-8744-e311c645a632.png",
-    "date" : "10/03/2025",
-    "newsUrl" : "news20250311094607964.json"
-  }, {
-    "parsedDate" : 1741657108,
-    "title" : "La inversión fija bruta de México creció un 3.4% en 2024",
-    "image" : "ec6ef951-8af3-416e-8744-e311c645a632.png",
-    "date" : "10/03/2025",
-    "newsUrl" : "news20250311093828345.json"
-  }, {
-    "parsedDate" : 1741228357,
-    "title" : "edit",
-    "image" : "587d8220-871a-4476-b44b-0bcfa38aabce.jpg",
-    "date" : "05/03/2025",
-    "newsUrl" : "news20250306103237459.json"
-  }, {
-    "parsedDate" : 1741174629,
-    "title" : "列表2",
-    "image" : "c8b9b875-b4a3-42fe-84ee-8c5c9f60ca04.png",
-    "date" : "05/03/2025",
-    "newsUrl" : "news20250305193709739.json"
-  }, {
-    "parsedDate" : 1741174480,
-    "title" : "Gobernadora de Banxico afirma que la lucha contra la inflación entra en una nueva fase",
-    "image" : "83474848-2792-4ce7-a39b-ce69a44b2e20.jpeg",
-    "date" : "05/03/2025",
-    "newsUrl" : "news20250305193440480.json"
-  }, {
-    "parsedDate" : 1741174480,
-    "title" : "Gobernadora de Banxico afirma que la lucha contra la inflación entra en una nueva fase",
-    "image" : "83474848-2792-4ce7-a39b-ce69a44b2e20.jpeg",
-    "date" : "05/03/2025",
-    "newsUrl" : "news20250305193440480.json"
-  } ]
+	"images": [{
+		"imageUrl": "news31.png"
+	}, {
+		"imageUrl": "news32.png"
+	}],
+	"newsUrls": [{
+		"newsUrl": "news31.json"
+	}, {
+		"newsUrl": "news32.json"
+	}],
+	"newsList": [{
+		"parsedDate" : 1739944983,
+		"title": "Gobernadora de Banxico afirma que la lucha contra la inflación entra en una nueva fase",
+		"image": "news34.png",
+		"date": "19/2/2025",
+		"newsUrl": "news34.json"
+	},{
+		"parsedDate" : 1739944863,
+		"title": "México enfrentaría una recesión y baja de calificación por aranceles de Trump, alerta Fitch",
+		"image": "news33.png",
+		"date": "19/2/2025",
+		"newsUrl": "news33.json"
+	},{
+		"parsedDate" : 1738649763,
+		"title": "Venta de autos nuevos en México crece 9.8% en 2024",
+		"image": "news30.png",
+		"date": "4/2/2025",
+		"newsUrl": "news30.json"
+	},{
+		"parsedDate" : 1738649643,
+		"title": "Gobierno de Sheinbaum realiza primera emisión de deuda por 8,500 mdd",
+		"image": "news29.png",
+		"date": "4/2/2025",
+		"newsUrl": "news29.json"
+	},{
+		"parsedDate" : 1738649583,
+		"title": "Banco Sabadell impulsa al sector agroindustrial en México con financiamiento sostenible",
+		"image": "news28.png",
+		"date": "4/2/2025",
+		"newsUrl": "news28.json"
+	},{
+		"parsedDate" : 1736230383,
+		"title": "¡Adiós “súper peso”! La moneda mexicana se deprecia 22.8% en 2024",
+		"image": "news27.png",
+		"date": "7/1/2025",
+		"newsUrl": "news27.json"
+	},{
+		"parsedDate" : 1736230323,
+		"title": "Indicadores IMEF reflejan estancamiento de la economía mexicana al cierre de 2024",
+		"image": "news26.png",
+		"date": "7/1/2025",
+		"newsUrl": "news26.json"
+	},{
+		"parsedDate" : 1736230203,
+		"title": "Desempleo en México se ubica en 2.6% de la PEA en noviembre de 2024",
+		"image": "news25.png",
+		"date": "7/1/2025",
+		"newsUrl": "news25.json"
+	},{
+		"parsedDate" : 1735279803,
+		"title": "Banxico podría discutir recorte tasa de hasta 50 puntos básicos en febrero pero dependerá del entorno",
+		"image": "news23.png",
+		"date": "27/12/2024",
+		"newsUrl": "news23.json"
+	},{
+		"parsedDate" : 1734675003,
+		"title": "Industria automotriz impulsó ventas minoristas en 2023",
+		"image": "news22.png",
+		"date": "20/12/2024",
+		"newsUrl": "news22.json"
+	},{
+		"parsedDate" : 1734502203,
+		"title": "Sector privado espera inversiones foráneas por 60,000 mdd en 2025",
+		"image": "news21.png",
+		"date": "18/12/2024",
+		"newsUrl": "news21.json"
+	},{
+		"parsedDate" : 1734502083,
+		"title": "En 2025 habrá bajo crecimiento económico en México pero no recesión: Franklin Templeton",
+		"image": "news20.png",
+		"date": "18/12/2024",
+		"newsUrl": "news20.json"
+	},{
+		"parsedDate" : 1734070083,
+		"title": "Confianza del consumidor cae en noviembre, hay mayor pesimismo por escenario económico presente y futuro",
+		"image": "news19.png",
+		"date": "13/12/2024",
+		"newsUrl": "news19.json"
+	},{
+		"parsedDate" : 1733810883,
+		"title": "Gobierno anuncia aumento de 12% al salario mínimo para 2025",
+		"image": "news17.png",
+		"date": "12/12/2024",
+		"newsUrl": "news17.json"
+	},{
+		"title": "OCDE mantiene sin cambios estimado de crecimiento económico para México, de 1.4% en 2024 y de 1.2% en 2025",
+		"image": "news16.png",
+		"date": "10/12/2024",
+		"newsUrl": "news16.json"
+	},{
+		"parsedDate" : 1733465283,
+		"title": "Peso mexicano cae por fortaleza del dólar tras amenaza de Trump a los BRICS",
+		"image": "news15.png",
+		"date": "6/12/2024",
+		"newsUrl": "news15.json"
+	},{
+		"parsedDate" : 1733119683,
+		"title": "Panorama ‘alentador’ para México: PIB crece 7.3% anual en segundo trimestre del 2024",
+		"image": "news14.png",
+		"date": "2/12/2024",
+		"newsUrl": "news14.json"
+	}]
 }
