@@ -94,6 +94,7 @@
 		"date": "12/12/2024",
 		"newsUrl": "news17.json"
 	},{
+		"parsedDate" : 1728684600,
 		"title": "OCDE mantiene sin cambios estimado de crecimiento económico para México, de 1.4% en 2024 y de 1.2% en 2025",
 		"image": "news16.png",
 		"date": "10/12/2024",
